@@ -1,0 +1,20 @@
+# IDE
+.idea
+.vscode
+
+# macOS
+.DS_Store
+
+# Environment variables
+.env
+
+# Dependency directories
+node_modules/
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+
+# Compiled binary
+dist/
