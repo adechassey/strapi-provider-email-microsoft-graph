@@ -23,24 +23,12 @@ interface SendOptions {
   text: string;
   html: string;
   apiSender: string;
-  [key: string]: unknown;
-}
-
-interface SendBulkOptions {
-  from?: string;
-  to: string[];
-  cc: string;
-  bcc: string;
-  replyTo?: string;
-  subject: string;
-  text: string;
-  html: string;
-  apiSender: string;
-  [key: string]: unknown;
+  attachments?: Message["attachments"];
 }
 
 export default {
   provider: "strapi-provider-email-microsoft-graph",
+  name: "Microsoft Graph Email Provider",
 
   init(providerOptions: ProviderOptions, settings: Settings = {}) {
     const emailClient = EmailClient.getInstance(
@@ -89,6 +77,7 @@ export default {
               },
             },
           ],
+          attachments: options.attachments,
         };
 
         await emailClient.sendEmail(message, apiSender);
