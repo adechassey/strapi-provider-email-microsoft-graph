@@ -45,16 +45,18 @@ You need to configure the provider with your Microsoft Graph API credentials. Ad
 
 module.exports = ({ env }) => ({
   email: {
-    provider: "strapi-provider-email-microsoft-graph",
-    providerOptions: {
-      tenantId: env("MICROSOFT_GRAPH_TENANT_ID"),
-      clientId: env("MICROSOFT_GRAPH_CLIENT_ID"),
-      clientSecret: env("MICROSOFT_GRAPH_CLIENT_SECRET"),
-    },
-    settings: {
-      defaultFrom: "no-reply@example.com",
-      defaultReplyTo: "support@example.com",
-      defaultApiSender: "api@example.com",
+    config: {
+      provider: "strapi-provider-email-microsoft-graph",
+      providerOptions: {
+        tenantId: env("MICROSOFT_GRAPH_TENANT_ID"),
+        clientId: env("MICROSOFT_GRAPH_CLIENT_ID"),
+        clientSecret: env("MICROSOFT_GRAPH_CLIENT_SECRET"),
+      },
+      settings: {
+        defaultFrom: "no-reply@example.com",
+        defaultReplyTo: "support@example.com",
+        defaultApiSender: "api@example.com",
+      },
     },
   },
 });
