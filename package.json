@@ -1,6 +1,6 @@
 {
   "name": "strapi-provider-email-microsoft-graph",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Strapi custom email provider for Microsoft Graph",
   "keywords": [
     "strapi",
