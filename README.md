@@ -95,13 +95,13 @@ module.exports = {
 
 | Option        | Type                                                                    | Description                          |
 | ------------- | ----------------------------------------------------------------------- | ------------------------------------ |
-| `to`          | string                                                                  | Recipient email address              |
+| `to`          | string \| string[]                                                      | Recipient email address(es)          |
 | `subject`     | string                                                                  | Subject of the email                 |
 | `from`        | string (optional if `defaultFrom` is defined in provider settings)      | Email address of the sender          |
 | `apiSender`   | string (optional if `defaultApiSender` is defined in provider settings) | API sender email address             |
 | `cc`          | string (optional)                                                       | CC email addresses, comma-separated  |
 | `bcc`         | string (optional)                                                       | BCC email addresses, comma-separated |
-| `replyTo`     | string (optional)                                                       | Reply-to email address               |
+| `replyTo`     | string \| string[] (optional)                                           | Reply-to email address(es)           |
 | `text`        | string (optional)                                                       | Text body of the email               |
 | `html`        | string (optional)                                                       | HTML body of the email               |
 | `attachments` | array (optional)                                                        | Attachments to include in the email  |
