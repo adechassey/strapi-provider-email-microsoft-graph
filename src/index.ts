@@ -1,4 +1,4 @@
-import { Message } from "@microsoft/microsoft-graph-types";
+import { Message, Recipient } from "@microsoft/microsoft-graph-types";
 import { EmailClient } from "./email-client";
 
 interface ProviderOptions {
@@ -15,10 +15,10 @@ interface Settings {
 
 interface SendOptions {
   from?: string;
-  to: string;
+  to: string | string[];
   cc: string;
   bcc: string;
-  replyTo?: string;
+  replyTo?: string | string[];
   subject: string;
   text: string;
   html: string;
@@ -50,6 +50,18 @@ export default {
           throw new Error("from address is required.");
         }
 
+        const toRecipients: Recipient[] = [options.to]
+          .flat()
+          .map((address) => ({
+            emailAddress: { address },
+          }));
+
+        const replyToRecipients: Recipient[] = [replyTo]
+          .flat()
+          .map((address) => ({
+            emailAddress: { address },
+          }));
+
         const message: Message = {
           subject: options.subject,
           body: {
@@ -61,22 +73,10 @@ export default {
               address: from,
             },
           },
-          replyTo: replyTo
-            ? [
-                {
-                  emailAddress: {
-                    address: replyTo,
-                  },
-                },
-              ]
+          replyTo: replyToRecipients
+            ? replyToRecipients
             : undefined,
-          toRecipients: [
-            {
-              emailAddress: {
-                address: options.to,
-              },
-            },
-          ],
+          toRecipients,
           attachments: options.attachments,
         };
 
