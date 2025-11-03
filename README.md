@@ -32,11 +32,11 @@ You need to configure the provider with your Microsoft Graph API credentials. Ad
 
 ### Settings
 
-| Option             | Type   | Description                      |
-| ------------------ | ------ | -------------------------------- |
-| `defaultFrom`      | string | Default `from` email address     |
-| `defaultReplyTo`   | string | Default `replyTo` email address  |
-| `defaultApiSender` | string | Default API sender email address |
+| Option             | Type               | Description                         |
+| ------------------ | ------------------ | ----------------------------------- |
+| `defaultFrom`      | string             | Default `from` email address        |
+| `defaultReplyTo`   | string \| string[] | Default `replyTo` email address(es) |
+| `defaultApiSender` | string             | Default API sender email address    |
 
 ### Example Configuration
 

@@ -9,7 +9,7 @@ interface ProviderOptions {
 
 interface Settings {
   defaultFrom?: string;
-  defaultReplyTo?: string;
+  defaultReplyTo?: string | string[];
   defaultApiSender?: string;
 }
 
